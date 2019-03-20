@@ -26,4 +26,11 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
+  def signed_in_user
+    unless signed_in?
+      flash[:notice] = "Please sign in."
+      redirect_to signin_url
+    end
+  end
+
 end
